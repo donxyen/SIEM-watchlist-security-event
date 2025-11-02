@@ -9,27 +9,15 @@ A lightweight Azure SIEM/Sentinel proof-of-concept: Azure VM → central Log Ana
 
 ## ARCHITECTURE
 
-Azure tenant & subscription — root environment for everything.
+- **Azure Tenant & Subscription** – Core environment for resource management.  
+- **Resource Group** – Contains all project resources.  
+- **Virtual Network (VNet) & Subnet** – Network foundation for connectivity.  
+- **Virtual Machine (VM)** – Target host for log collection and monitoring.  
+- **Network Security Group (NSG)** – Configured to simulate an exposed environment.  
+- **Log Analytics Workspace** – Central repository for log data.  
+- **Azure Monitor Agent** – Forwards VM security logs to Log Analytics.  
+- **Microsoft Sentinel** – Connected to Log Analytics for security event analysis.
 
-Resource Group — houses all resources for the demo.
-
-Virtual Network + Subnet — network layer where the VM resides.
-
-Virtual Machine — target host instrumented for telemetry.
-
-VM NSG / firewall intentionally left wide open to simulate exposed service.
-
-VM host firewall also open (simulates a high-risk target).
-
-Log Analytics workspace — central log repository for security data.
-
-Azure Monitor Agent (on the VM) — forwards security logs to Log Analytics.
-
-Azure Sentinel — connected to the Log Analytics workspace to ingest logs and run detections.
-
-Watchlist — uploaded spreadsheet of geographic IP block metadata used for enrichment and lookup.
-
-KQL queries & dashboard — queries correlate failed logons with attacker IPs and watchlist metadata; results are plotted on a map visualization.
 
 ## STEPS
 
